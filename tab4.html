@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tab 4 - Profile</title>
+<style>
+  * { box-sizing: border-box }
+  html, body{
+    margin: 0;
+    padding: 0;
+  }
+
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #efe0ff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .profile-wrap {
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .image {
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .name {
+    font-size: 28px;
+    margin-top: 15px;
+  }
+
+  .notif-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(255, 243, 133);
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .notif-bar .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    color: rgb(255, 35, 35);
+  }
+
+  h2 {
+    margin: 20px;
+    text-align: center;
+    font-size: 40px;
+  }
+
+</style>
+</head>
+
+<body>
+  <h2>Profile</h2>
+    <div class = "profile-wrap">
+      <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLUaD4xa9ruIEaBrNSys2jibWWHFJuviAZ4g&s" class="image" id="image"> 
+      <div class = "name">Testudo</div>
+    </div>
+
+    <div class = "notif-bar" id ="notif-bar">
+      You tapped testudo!
+      <span class ="close" id = "closeBtn">X</span>
+    </div>
+
+    <script>
+      const image = document.getElementById("image");
+      const bar = document.getElementById("notif-bar");
+      const closeBtn = document.getElementById("closeBtn")
+
+      image.addEventListener("click", () => {
+        bar.style.display = "block";
+      })
+
+      closeBtn.addEventListener("click", () => {
+        bar.style.display = "none";
+      })
+
+    </script>
+</body>
+</html>
