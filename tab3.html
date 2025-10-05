@@ -10,13 +10,26 @@
     padding: 0;
   }
 
+  .device-frame {
+    width: 375px;
+    min-height: 667px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 225, 230);
+  }
+
 
   body {
     font-family: Arial, sans-serif;
-    background-color: #ffeaf4;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
 
   .row {
@@ -46,8 +59,11 @@
 </head>
 
 <body>
-  <h2>Colors</h2>
-    <div class = "row row1">Hello There</div>
-    <div class = "row row2">Hi Again</div>
+  <div class = "device-frame">
+    <h2>Colors</h2>
+      <div class = "row row1">Hello There</div>
+      <div class = "row row2">Hi Again</div>
+  </div>
+
 </body>
 </html>

@@ -10,13 +10,28 @@
     padding: 0;
   }
 
+  .device-frame {
+    width: 375px;
+    min-height: 667px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: rgb(246, 225, 255);
+    position: relative;
+
+  }
+
 
   body {
     font-family: Arial, sans-serif;
-    background-color: #efe0ff;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
 
   .profile-wrap {
@@ -38,7 +53,7 @@
 
   .notif-bar {
     display: none;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -47,6 +62,7 @@
     padding: 20px;
     font-size: 20px;
     text-align: center;
+    border-radius: 17px;
   }
 
   .notif-bar .close {
@@ -67,30 +83,32 @@
 </head>
 
 <body>
-  <h2>Profile</h2>
-    <div class = "profile-wrap">
-      <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLUaD4xa9ruIEaBrNSys2jibWWHFJuviAZ4g&s" class="image" id="image"> 
-      <div class = "name">Testudo</div>
+  <div class = "device-frame">
+
+    <h2>Profile</h2>
+      <div class = "profile-wrap">
+        <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLUaD4xa9ruIEaBrNSys2jibWWHFJuviAZ4g&s" class="image" id="image"> 
+        <div class = "name">Testudo</div>
+      </div>
+
+      <div class = "notif-bar" id ="notif-bar">
+        You tapped testudo!
+        <span class ="close" id = "closeBtn">X</span>
+      </div>
+
+      <script>
+        const image = document.getElementById("image");
+        const bar = document.getElementById("notif-bar");
+        const closeBtn = document.getElementById("closeBtn")
+
+        image.addEventListener("click", () => {
+          bar.style.display = "block";
+        })
+
+        closeBtn.addEventListener("click", () => {
+          bar.style.display = "none";
+        })
+      </script>
     </div>
-
-    <div class = "notif-bar" id ="notif-bar">
-      You tapped testudo!
-      <span class ="close" id = "closeBtn">X</span>
-    </div>
-
-    <script>
-      const image = document.getElementById("image");
-      const bar = document.getElementById("notif-bar");
-      const closeBtn = document.getElementById("closeBtn")
-
-      image.addEventListener("click", () => {
-        bar.style.display = "block";
-      })
-
-      closeBtn.addEventListener("click", () => {
-        bar.style.display = "none";
-      })
-
-    </script>
 </body>
 </html>
