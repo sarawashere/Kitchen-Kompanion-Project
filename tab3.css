@@ -1,4 +1,12 @@
+    * { box-sizing: border-box }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+  }
+
   .device-frame {
+    position:relative;
     width: 375px;
     min-height: 667px;
     border: 1px solid #ccc;
@@ -6,6 +14,8 @@
     overflow: 0 0 15px rgba(0, 0, 0, 0.2);
     background: rgb(255, 225, 230);
   }
+
+
   body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -18,14 +28,28 @@
     min-height: 100vh;
   }
 
-.tab-body {
-    flex: 1;
-    overflow-y: scroll;
-    padding: 20px;
-    background-color: white;
+  .row {
+    width: 100%;
+    padding: 27px;
+    text-align: center;
+    font-size: 25px;
+  }
 
-}
+  .row1 {
+    background-color: black;
+    color: rgb(255, 255, 186);
+  }
 
+  .row2 {
+    background-color: rgb(255, 255, 186);
+    color: purple;
+  }
+
+  h2 {
+    margin: 20px;
+    text-align: center;
+    font-size: 40px;
+  }
 .bottom-nav {
     position: absolute;
     bottom: 0;
