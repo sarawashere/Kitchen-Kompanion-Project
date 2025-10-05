@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font: 50px;
+}
+.tab-body {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: white;
+
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10px 0;
+}
+
+.bottom-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.bottom-nav a.active {
+    color: blue;
+}
