@@ -4,84 +4,108 @@
 <meta charset="UTF-8">
 <title>Tab 6 - ToDo</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #e0f7fa;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-h2 {
-  margin-top: 30px;
-}
+  .device-frame {
+      width: 375px;
+      min-height: 667px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      overflow: 0 0 15px rgba(0, 0, 0, 0.2);
+      background: #e0f7fa;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-input[type=text] {
-  padding: 8px;
-  width: 60%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  h2 {
+    margin-top: 30px;
+  }
 
-button {
-  padding: 8px 12px;
-  margin-left: 5px;
-  border: none;
-  background-color: #00796b;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .input-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
 
-button:hover {
-  background-color: #009688;
-}
+  input[type=text] {
+    padding: 8px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 25px;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
+  button {
+    padding: 8px 12px;
+    margin-left: 12px;
+    border: none;
+    background-color: #00796b;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-ul li {
-  background: white;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  button:hover {
+    background-color: #009688;
+  }
 
-.delete-btn {
-  background-color: #e57373;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 25px;
+    width: 90%;
+  }
 
-.delete-btn:hover {
-  background-color: #f44336;
-}
+  ul li {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .delete-btn {
+    background-color: #e57373;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .delete-btn:hover {
+    background-color: #f44336;
+  }
 </style>
 </head>
 
 <body>
+  <div class = "device-frame">
   <h2>To-Do List</h2>
-
-  <input type="text" placeholder="Add a new task...">
-  <button>Add</button>
+  <div class = "input-wrap">
+    <input type="text" placeholder="Add a new task...">
+    <button>Add</button>
+  </div>
 
   <ul>
     <li>Finish write-up for Phase 1.2  <button class="delete-btn">Delete</button></li>
     <li>Finish Tab 1 and 2 <button class="delete-btn">Delete</button></li>
   </ul>
+</div>
 </body>
 </html>
