@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tab 6 - ToDo</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+input[type=text] {
+  padding: 8px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  border: none;
+  background-color: #00796b;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #009688;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 25px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+ul li {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background-color: #e57373;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #f44336;
+}
+</style>
+</head>
+
+<body>
+  <h2>To-Do List</h2>
+
+  <input type="text" placeholder="Add a new task...">
+  <button>Add</button>
+
+  <ul>
+    <li>Finish write-up for Phase 1.2  <button class="delete-btn">Delete</button></li>
+    <li>Finish Tab 1 and 2 <button class="delete-btn">Delete</button></li>
+  </ul>
+</body>
+</html>
