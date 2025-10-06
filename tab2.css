@@ -1,14 +1,30 @@
-body {
+* {
+    box-sizing: border-box;
+  }
+html, body {
     margin: 0;
+    padding:0;
     font-family: Arial, Helvetica, sans-serif;
-    flex-direction: column;
-    position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background-color: white;
+    align-items: center;
+    justify-content: center;
     display: flex;
 }
 
-
+.device-frame { 
+    position:relative;
+    width: 375px;
+    min-height: 667px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 225, 230); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    overflow: hidden;}
 .bottom-rt {
     color: black;
     font-weight: 600;
@@ -20,15 +36,19 @@ body {
 .lr-tab {
     flex: 1;
     position: relative;
+    width: 100%;
 }
 .bottom-nav {
     display: flex;
     justify-content: space-around;
     background-color: black;
     padding: 10px 0;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .bottom-nav a {
