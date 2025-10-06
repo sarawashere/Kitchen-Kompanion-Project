@@ -48,9 +48,9 @@
   .notif-bar {
     display: none;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    bottom: 80px;
+    left: 10%;
+    width: 80%;
     background: rgb(255, 243, 133);
     color: rgb(0, 0, 0);
     padding: 20px;
