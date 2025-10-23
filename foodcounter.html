@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- NOTE: fixed the common typo: width=device-width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fridge • Mobile</title>
+  <link rel="stylesheet" href="fridge.css" />
+</head>
+<body>
+  <div class="device-frame">
+    <!-- Header -->
+    <header class="header">
+      <h1>Fridge</h1>
+      <div class="controls">
+        <div class="search-wrap">
+          <input id="search" type="text" placeholder="Search foods" aria-label="Search foods" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main id="foodList" class="recipes" aria-live="polite">
+      <!-- Each card carries data attributes for filtering -->
+      <article class="food-card" data-name="Ketchup">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="info">
+          <h3>Ketchup</h3>
+          <div class="counter">
+            <button class="dec-btn" aria-label="Decrease quantity">−</button>
+            <span class="quantity" aria-live="polite">1</span>
+            <button class="inc-btn" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Milk" data-calories="540">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="info">
+          <h3>Milk</h3>
+           <div class="counter">
+            <button class="dec-btn" aria-label="Decrease quantity">−</button>
+            <span class="quantity" aria-live="polite">1</span>
+            <button class="inc-btn" aria-label="Increase quantity">+</button>
+        </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Half-and-half" data-calories="720">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="info">
+          <h3>Half-and-half</h3>
+           <div class="counter">
+            <button class="dec-btn" aria-label="Decrease quantity">−</button>
+            <span class="quantity" aria-live="polite">1</span>
+            <button class="inc-btn" aria-label="Increase quantity">+</button>
+        </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Butter" data-calories="280">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="info">
+          <h3>Butter</h3>
+           <div class="counter">
+            <button class="dec-btn" aria-label="Decrease quantity">−</button>
+            <span class="quantity" aria-live="polite">1</span>
+            <button class="inc-btn" aria-label="Increase quantity">+</button>
+        </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Eggs" data-calories="410">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="info">
+          <h3>Eggs</h3>
+           <div class="counter">
+            <button class="dec-btn" aria-label="Decrease quantity">−</button>
+            <span class="quantity" aria-live="polite">1</span>
+            <button class="inc-btn" aria-label="Increase quantity">+</button>
+        </div>  
+        </div>
+      </article>
+
+
+  <script>
+    // Filtering
+    const searchInput = document.getElementById('search');
+    const cards = Array.from(document.querySelectorAll('.food-card'));
+
+    function applyFilters() {
+      const q = (searchInput.value || '').trim().toLowerCase();
+
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        card.style.display = name.includes(q) ? '' : 'none';
+      });
+    }
+    searchInput.addEventListener('input', applyFilters);
+
+    // Quantity counters
+    document.querySelectorAll('.food-card').forEach(card => {
+      const decBtn = card.querySelector('.dec-btn');
+      const incBtn = card.querySelector('.inc-btn');
+      const qtySpan = card.querySelector('.quantity');
+      let quantity = 1;
+
+        decBtn.addEventListener('click', () => {
+            if (quantity > 0) {
+            quantity--;
+            qtySpan.textContent = quantity;
+            }
+        });
+        incBtn.addEventListener('click', () => {
+            quantity++;
+            qtySpan.textContent = quantity;
+        });
+    });
+    // Bottom-nav active state (visual only)
+    document.querySelectorAll('.bottom-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.bottom-nav a').forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
