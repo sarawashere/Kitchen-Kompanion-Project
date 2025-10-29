@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Tablet-sized frame -->
+  <div class="device-frame">
+    <div class="screen">
+
+      <header class="container">
+        <h1>Shopping List</h1>
+        <div class="toolbar">
+          <label class="field">
+            <span>Search</span>
+            <input id="search" type="text" placeholder="Search items" />
+          </label>
+
+          <label class="field">
+            <span>Group by</span>
+            <select id="groupBy">
+              <option value="alpha">A → Z (by food)</option>
+              <option value="store">Store</option>
+            </select>
+          </label>
+
+          <!-- (moved Clear List button to bottom of list) -->
+        </div>
+      </header>
+
+      <main class="container grid grid--stack">
+        <section class="card">
+          <h2>Add Item</h2>
+          <form id="addForm" autocomplete="off">
+            <label class="field">
+              <span>Food</span>
+              <input id="food" name="food" type="text" placeholder="e.g., Bananas" required />
+            </label>
+        
+            <label class="field">
+              <span>Amount</span>
+              <input id="amount" name="amount" type="text" placeholder="e.g., 6 pcs / 2 lbs" />
+            </label>
+        
+            <label class="field">
+              <span>Store</span>
+              <input id="store" name="store" type="text" placeholder="e.g., Trader Joe's" />
+            </label>
+        
+            <label class="field">
+              <span>Notes (optional)</span>
+              <textarea id="notes" name="notes" placeholder="Calories, macros, etc."></textarea>
+            </label>
+        
+            <div class="actions">
+              <!-- Clear List button moved here -->
+              <button id="clearList" type="button" class="btn danger">Clear List</button>
+              <button class="btn primary" type="submit">Add Item</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Your Items</h2>
+          <ul id="itemsList" class="list"></ul>
+          <div id="emptyState" class="empty" hidden>No items yet — add something above.</div>
+        </section>
+      </main>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
