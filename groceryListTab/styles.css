@@ -1,318 +1,212 @@
-/* Document colors*/
+/* Colors */
 :root {
-    --bg: #ffffff;          
-    --panel: #f9f9f9;       
-    --text: #000000;        
-    --muted: #6b7280;       
-    --stroke: #d0d0d0;      
-    --brand: #eef2ff;       
-    --danger: #dc2626;      
-  }
-  
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font: 16px/1.4 Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-  }
-  
-  .container { max-width: 900px; margin: 0 auto; padding: 16px; }
-  
-  header {
-    position: sticky; top: 0;
-    background: rgba(255,255,255,.95);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--stroke);
-  }
-  h1 { margin: 0 0 10px; font-size: 28px; }
-  
-  .toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 12px;
-    align-items: end;
-  }
-  .field { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
-  
-  input, select, textarea {
-    background: var(--panel);
-    color: var(--text);
-    border: 1px solid var(--stroke);
-    border-radius: 10px;
-    padding: 10px 12px;
-  }
-  input::placeholder,
-  textarea::placeholder {
-    color: #9ca3af;   /* placeholder color */
-  }
-  input:focus, select:focus, textarea:focus {
-    outline: 2px solid rgba(37,150,190,.35);
-    border-color: var(--brand);
-  }
-  
-  .btn {
-    background: var(--panel);
-    color: var(--text);
-    border: 1px solid var(--stroke);
-    border-radius: 10px;
-    padding: 10px 14px;
-    cursor: pointer;
-  }
-  
-  /* Add item buttom*/
-  .btn.primary {
-    background: var(--brand); 
-    color: #1d6f87;  
-    font-weight: 600;
-    border-color: #1d6f87; 
-  }
+  --bg: #ffffff;
+  --panel: #f9f9f9;
+  --text: #000000;
+  --muted: #6b7280;
+  --stroke: #d0d0d0;
+  --brand: #eef2ff;
+  --danger: #dc2626;
+}
 
-  /* Clear list button*/
-  .btn.danger {
-    background: #fee2e2;
-    color: var(--danger);
-    border-color: #dc2626;
-  }
-  
-  .grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
-  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
-  
-  .card {
-    border: 1px solid var(--stroke);
-    background: var(--panel);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  h2 { margin-top: 0; }
-  
-  .actions { display: flex; justify-content: flex-end; }
-  
-  .list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 10px;
-  }
-  
-  .group-title {
-    margin: 6px 2px 2px;
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  
-  .item {
-    display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center;
-    padding: 12px; border: 1px solid var(--stroke); border-radius: 10px; background: #fff;
-  }
-  .item .name { font-weight: 600; }
-  .item .meta {
-    color: var(--muted);
-    font-size: 13px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .item.checked .name { text-decoration: line-through; color: #666; }
-  
-  .empty {
-    padding: 20px;
-    text-align: center;
-    color: var(--muted);
-    border: 1px dashed var(--stroke);
-    border-radius: 10px;
-  }
-  
-  /* Stack Add Item (top) and Your Items (below) */
-.grid.grid--stack {
-    grid-template-columns: 1fr;  /* single column */
-  }
+/* Base / Reset */
+* { box-sizing: border-box; }
 
-  /* Shorter search bar so everything fits nicely */
-.toolbar {
-    grid-template-columns: 170px 120px auto; /* search | group | clear */
-  }
-
-/* Fixed device frame size (no other style changes) */
-.device-frame {
-    width: 375px;
-    height: 667px;
-  }
-
-  /* Center the fixed device in the viewport */
 html, body { height: 100%; }
+
 body {
+  margin: 0;
+  font: 14px/1.45 Arial, Helvetica, sans-serif; 
+  background: var(--bg);
+  color: var(--text);
+
+  /* Center the device screen */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Fixed box dimensions (tablet/phone-style container) */
+/* Device / Screen Specs */
 .device-frame {
   width: 375px;
   height: 667px;
   border: 1px solid #ccc;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0,0,0,.15);
   background: var(--bg);
+  box-shadow: 0 8px 30px rgba(0,0,0,.15);
   display: flex;
   flex-direction: column;
 }
-.screen { flex: 1; display: flex; flex-direction: column; }
 
-/* --- Compact sizing tweaks (just a bit smaller) --- */
+/* Scrolling functionality for screen */
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-/* Base font slightly smaller */
-body { font: 14px/1.45 Arial, Helvetica, sans-serif; }
+/* Inner content alignment */
+.container { max-width: 900px; margin: 0 auto; padding: 10px; }
 
-/* Container + spacing */
-.container { padding: 10px; }
-.toolbar { gap: 8px; grid-template-columns: 160px 110px auto; }
+/* Enable grid */
+.grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+.grid.grid--stack { grid-template-columns: 1fr; }
 
-/* Headings */
-h1 { font-size: 20px; margin-bottom: 8px; }
-h2 { font-size: 14px; margin-top: 0; margin-bottom: 8px; }
+/* Header */
+header {
+  position: sticky; /* Stays visible as you scroll */
+  top: 0;
+  z-index: 50;
+  background: #fff; /* List doesn’t show through on scroll */
+  border-bottom: 1px solid var(--stroke);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04); 
+}
 
-/* Fields */
-.field { gap: 4px; font-size: 13px; }
+/* Header stretches from edge to edge even if it uses .container */
+header.container {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 12px;
+}
 
-/* Inputs */
+/* Typography */
+h1 { margin: 0 0 8px; font-size: 20px; }
+h2 { margin: 0 0 8px; font-size: 14px; }
+
+/* Data Entering Fields */
+.toolbar {
+  display: grid;
+  align-items: end;
+  gap: 8px;
+
+  /* "Search", "Group by" */
+  grid-template-columns: 170px 120px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Style for input fields and placeholders */
 input, select, textarea {
-  padding: 8px 10px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--stroke);
   border-radius: 8px;
+  padding: 8px 10px;
   font-size: 13px;
 }
+
 input::placeholder,
 textarea::placeholder { color: #9ca3af; }
 
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid rgba(37,150,190,.35);
+  border-color: var(--brand);
+}
+
 /* Buttons */
 .btn {
-  padding: 8px 12px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--stroke);
   border-radius: 8px;
+  padding: 8px 12px;
   font-size: 14px;
-}
-.btn.primary {
-  /* keep your existing brand styles; only size changed above */
+  cursor: pointer;
 }
 
-/* Cards */
+/* Add item button */
+.btn.add {
+  background: var(--brand);
+  color: #1d6f87;
+  font-weight: 600;
+  border-color: #1d6f87;
+}
+
+/* Clear list button */
+.btn.clear {
+  background: #fee2e2;
+  color: var(--danger);
+  border-color: #dc2626;
+}
+
+/* Style for 'Cards' aka sections */
 .card {
-  padding: 10px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
   border-radius: 10px;
+  padding: 10px;
 }
 
-/* List layout */
-.list { gap: 8px; }
-.group-title { font-size: 11px; margin: 4px 2px 2px; }
+/* Styles the clear and add buttons */
+.actions {
+  display: flex;
+  justify-content: space-between; /* left + right alignment */
+  gap: 8px;
+  margin-top: 10px;
+}
 
-/* Items */
+/* Controls how lists and individual list items are displayed */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+/* Optional group headers */
+.group-title {
+  margin: 4px 2px 2px;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
 .item {
+  display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 8px;
+  align-items: center;
   padding: 8px;
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Main text style */
+.item .name { font-weight: 600; }
+
+/* Subtext / description style*/
+.item .meta {
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Strike through to check off items*/
+.item.checked .name {
+  text-decoration: line-through;
+  color: #666;
+}
+
+/* Default, empty state message */
+.empty {
+  padding: 14px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--stroke);
   border-radius: 8px;
 }
-.item .name { font-weight: 600; }
-.item .meta { font-size: 12px; gap: 6px; }
-
-/* Empty */
-.empty { padding: 14px; border-radius: 8px; }
-
-
-/* Make the 375×667 device scrollable inside */
-.device-frame {
-    width: 375px;
-    height: 667px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    overflow: hidden;
-    background: var(--bg);
-    box-shadow: 0 8px 30px rgba(0,0,0,.15);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* The inner screen becomes the scroll container */
-  .screen {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;    /* <-- allows scroll inside the device */
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* Stack Add Item above Your Items */
-  .grid.grid--stack {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Since we removed the Clear button from the toolbar,
-     keep the toolbar compact for search & group only */
-  .toolbar {
-    grid-template-columns: 170px 120px; /* search | group */
-    gap: 8px;
-  }
-  
-  /* Shorten inputs a tad (keeps layout tidy in 375×667) */
-  input, select, textarea {
-    padding: 8px 10px;
-    border-radius: 8px;
-  }
-  
-  /* Footer area under the list for the Clear button */
-  .list-footer {
-    margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  
-  /* Make header fixed so scrolling items don't show behind it */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: #fff;  /* ensure solid background */
-    border-bottom: 1px solid var(--stroke);
-  }
-  
-  /* Actions row: space buttons nicely */
-  .actions {
-    display: flex;
-    justify-content: space-between;  /* left + right alignment */
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-
-  /* 1) The device scrolls inside */
-.screen {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* 2) Make header full-bleed (edge-to-edge) and above content */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: #fff;                   /* solid block so nothing shows behind */
-    border-bottom: 1px solid var(--stroke);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.04); /* subtle separation */
-  }
-  
-  /* 3) Override `.container` constraints when used on the header only */
-  header.container {
-    max-width: none;                    /* remove inset max-width */
-    width: 100%;                        /* span the device width */
-    margin: 0;                          /* no auto-centering on header */
-    padding: 12px;                      /* preserve your inner spacing */
-  }
-  
