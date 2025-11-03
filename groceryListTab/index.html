@@ -1,3 +1,4 @@
+  <!-- Document Set Up -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,12 @@
   <title>Shopping List</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <!-- Tablet-sized frame -->
+  <!-- Make the screen the specified size -->
   <div class="device-frame">
     <div class="screen">
-
+      <!-- Top of screen, non scrollable, containing 'search' and 'group by' -->
       <header class="container">
         <h1>Shopping List</h1>
         <div class="toolbar">
@@ -22,54 +24,53 @@
           <label class="field">
             <span>Group by</span>
             <select id="groupBy">
-              <option value="alpha">A → Z (by food)</option>
+              <option value="alpha">A → Z (by item)</option>
               <option value="store">Store</option>
             </select>
           </label>
-
-          <!-- (moved Clear List button to bottom of list) -->
         </div>
       </header>
-
+      
+      <!-- Middle of screen, scrollable, contains food details, 'add item' and 'clear list'  -->
       <main class="container grid grid--stack">
         <section class="card">
-          <h2>Add Item</h2>
+          <h2>Add To List</h2>
           <form id="addForm" autocomplete="off">
             <label class="field">
               <span>Food</span>
-              <input id="food" name="food" type="text" placeholder="e.g., Bananas" required />
+              <input id="food" name="food" type="text" placeholder="Bananas" required />
             </label>
         
             <label class="field">
               <span>Amount</span>
-              <input id="amount" name="amount" type="text" placeholder="e.g., 6 pcs / 2 lbs" />
+              <input id="amount" name="amount" type="text" placeholder="6 pcs / 2 lbs" />
             </label>
         
             <label class="field">
               <span>Store</span>
-              <input id="store" name="store" type="text" placeholder="e.g., Trader Joe's" />
+              <input id="store" name="store" type="text" placeholder="Trader Joe's" />
             </label>
         
             <label class="field">
               <span>Notes (optional)</span>
-              <textarea id="notes" name="notes" placeholder="Calories, macros, etc."></textarea>
+              <textarea id="notes" name="notes" placeholder="Calories, gluten free, etc."></textarea>
             </label>
         
+            <!-- Bottom of section, 'clear list' deletes all items, 'add item' adds the details entered above-->
             <div class="actions">
-              <!-- Clear List button moved here -->
               <button id="clearList" type="button" class="btn danger">Clear List</button>
               <button class="btn primary" type="submit">Add Item</button>
             </div>
           </form>
         </section>
 
+        <!-- Bottom of screen, scrollable, contains shopping list as entered above  -->
         <section class="card">
-          <h2>Your Items</h2>
+          <h2>Your Shopping List</h2>
           <ul id="itemsList" class="list"></ul>
-          <div id="emptyState" class="empty" hidden>No items yet — add something above.</div>
+          <div id="emptyState" class="empty" hidden>No items yet, add something above.</div>
         </section>
       </main>
-
     </div>
   </div>
 

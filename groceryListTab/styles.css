@@ -1,3 +1,4 @@
+/* Document colors*/
 :root {
     --bg: #ffffff;          
     --panel: #f9f9f9;       
@@ -59,16 +60,19 @@
     cursor: pointer;
   }
   
+  /* Add item buttom*/
   .btn.primary {
-    background: var(--brand);   /* #2596be */
-    color: #1d6f87;            /* match border color */
+    background: var(--brand); 
+    color: #1d6f87;  
     font-weight: 600;
-    border-color: #1d6f87;     /* border */
+    border-color: #1d6f87; 
   }
+
+  /* Clear list button*/
   .btn.danger {
     background: #fee2e2;
     color: var(--danger);
-    border-color: #fecaca;
+    border-color: #dc2626;
   }
   
   .grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
