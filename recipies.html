@@ -1,0 +1,83 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipes</title>
+  <link rel="stylesheet" href="recipies.css" />
+</head>
+<body>
+  <div class="device-frame">
+    <div class="app" id="app">
+      <header>
+        <div class="bar" role="search">
+          <div class="search" aria-label="Search recipes">
+            <span aria-hidden="true">🔎</span>
+            <input id="search" type="search" placeholder="Search recipes, ingredients…" autocomplete="off" />
+          </div>
+          <button id="show-favs" class="pill" title="Show favorites">🩷 Favorites</button>
+        </div>
+      </header>
+
+      <main class="wrap">
+        <section class="filters" aria-label="Filters">
+          <div class="filters-row">
+            <h2>Filters</h2>
+            <button class="clear" id="clearFilters" title="Clear filters">Clear all</button>
+          </div>
+
+          <div class="group">
+            <h3>Cooking skill</h3>
+            <label for="skill">Select level</label>
+            <select id="skill">
+              <option value="">Any</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+
+          <div class="group">
+            <h3>Calories (max)</h3>
+            <div class="range-row">
+              <input id="calMax" type="range" min="200" max="1200" step="50" value="900" aria-label="Max calories" />
+              <span class="range-val" id="calVal">≤ 900 kcal</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Allergies</h3>
+            <div class="chips" id="allergyChips" aria-label="Allergy chips"></div>
+          </div>
+        </section>
+
+        <section>
+          <div id="resultsInfo" class="results"></div>
+          <div class="grid" id="grid" aria-live="polite"></div>
+          <div id="empty" class="empty" hidden>No recipes match your filters. Try clearing some filters.</div>
+        </section>
+      </main>
+
+      <dialog id="modal" aria-modal="true">
+        <div class="modal-head">
+          <strong id="mTitle">Recipe</strong>
+          <div class="modal-actions">
+            <button id="mFav" class="pill" aria-pressed="false">❤️ Favorite</button>
+            <button class="close" id="mClose">Close</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div id="mMeta" class="meta"></div>
+          <div id="mDesc"></div>
+          <div><strong>Ingredients:</strong>
+            <ul id="mIngr"></ul>
+          </div>
+          <div id="mAllergens" class="meta"></div>
+        </div>
+      </dialog>
+    </div>
+  </div>
+  <script src="recipies.js"></script>
+</body>
+</html>
