@@ -19,9 +19,17 @@
   }
 
   /* Utilities */
-  function $(sel) { return document.querySelector(sel); }
-  function uid() { return Math.random().toString(36).slice(2, 9); }
-  function norm(s) { return (s || '').trim(); }
+  function $(sel) { 
+    return document.querySelector(sel); 
+  }
+
+  function uid() { 
+    return Math.random().toString(36).slice(2, 9); 
+  }
+
+  function norm(s) { 
+    return (s || '').trim(); 
+  }
 
   function escapeHtml(s) {
     return String(s || '').replace(/[&<>"']/g, function (c) {
@@ -152,7 +160,7 @@
   /* View Model Helpers: filter & group */
   function getFilteredAndGrouped() {
     var q = norm(search.value).toLowerCase();
-    var mode = groupBy.value; // 'alpha' or 'store'
+    var mode = groupBy.value; // 'alphabetical' or 'store'
     var listCopy = items.slice();
 
     // Text filter across food/store/notes
