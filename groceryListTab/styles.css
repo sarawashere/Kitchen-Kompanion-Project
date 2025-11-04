@@ -3,14 +3,14 @@
   --panel:#2B2D42;
   --text:#ffffff;
   --muted:#ffffff;
-  --stroke:#E86A92;
+  --border:#E86A92;
   --brand:#eef2ff;
   --danger:#dc2626;
 }
 
+/* Reset & Base */
 *{box-sizing:border-box}
 html,body{height:100%}
-
 body{
   margin:0;
   font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -22,7 +22,7 @@ body{
   font-size:15px;
 }
 
-/* device same as recipes */
+/* Device Frame (match recipe tab) */
 .device-frame{
   width:375px;
   height:667px;
@@ -36,16 +36,21 @@ body{
   flex-direction:column;
 }
 
-/* scroll screen internally only */
+/* Internal layout */
 .screen{
   flex:1;
   display:flex;
   flex-direction:column;
+  overflow-y:hidden; /* disable global scroll */
+}
+
+/* Bottom section scrolls independently */
+main.container{
+  flex:1;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
 }
 
-/* no horizontal scroll */
 .container{
   width:100%;
   margin:0 auto;
@@ -53,55 +58,56 @@ body{
   overflow-x:hidden;
 }
 
-/* single column ALWAYS like recipes */
-.grid{
-  display:grid;
-  gap:12px;
-  grid-template-columns:1fr;
-}
+/* Typography */
+h1{font-size:18px;margin:0 0 8px}
+h2{font-size:16px;margin:0 0 8px}
 
-/* header same proportion as recipes */
+/* Header (exact match to recipe) */
 header{
   position:sticky;
   top:0;
   z-index:5;
   backdrop-filter:blur(6px);
   background:rgba(43,45,66,.15);
-  border-bottom:1px solid var(--stroke);
+  border-bottom:1px solid var(--border);
   padding:12px;
 }
 
-h1{font-size:18px; margin:0 0 8px}
-h2{font-size:16px; margin:0 0 8px}
-
-.field{display:grid; gap:6px; font-size:14px; color:var(--muted);}
-
-/* group by dropdown ABOVE add area */
+/* Toolbar: Search + Group By stacked and always visible */
 .toolbar{
   display:grid;
-  gap:10px;
+  gap:6px;
+  grid-template-columns:1fr;
 }
 
-/* inputs and buttons scale down */
-input, select, textarea, .btn{
+.field{
+  display:grid;
+  gap:6px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* Inputs / Buttons (mobile scale) */
+input,select,textarea,.btn{
   background:var(--panel);
   color:var(--text);
-  border:1px solid var(--stroke);
+  border:1px solid var(--border);
   border-radius:12px;
   padding:10px 12px;
   font-size:14px;
 }
-
 input::placeholder,textarea::placeholder{color:#9ca3af}
 
-/* card unify */
+/* Cards (match recipe panels) */
 .card{
-  border:1px solid var(--stroke);
+  border:1px solid var(--border);
   background:var(--panel);
   border-radius:18px;
   padding:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
 }
 
+/* Add/Clear buttons */
 .actions{
   display:flex;
   justify-content:space-between;
@@ -109,29 +115,59 @@ input::placeholder,textarea::placeholder{color:#9ca3af}
   margin-top:10px;
 }
 
-/* item row CONSISTENT MOBILE SCALE NOW */
+/* Shopping list */
+.list{width:100%;display:grid;gap:10px;}
+
+/* Unified mobile-scale item row */
 .item{
   display:grid;
-  grid-template-columns:auto 1fr auto;
-  gap:10px;
-  align-items:center;
+  grid-template-columns:20px 1fr auto; /* checkbox | content | delete */
+  column-gap:10px;
+  align-items:start;
   padding:10px;
-  border:1px solid var(--stroke);
+  border:1px solid var(--border);
   border-radius:12px;
   background:#2B2D42;
 }
 
-.item .name{font-weight:600; font-size:14px;}
-.item .meta{color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:6px;}
-.item.checked .name{text-decoration:line-through; color:#666}
+.item .chk{margin:2px 0 0 0;}
+.item .content{
+  display:grid;
+  gap:6px;
+  min-width:0;
+}
+.item .name{
+  font-weight:600;
+  font-size:14px;
+  line-height:1.2;
+  word-break:break-word;
+}
+.item .meta{
+  display:grid;
+  gap:2px;
+  font-size:12px;
+  color:var(--muted);
+}
+.item .btn[data-action="delete"]{
+  align-self:start;
+  padding:8px 10px;
+  border-radius:10px;
+}
+.item.checked .name{
+  text-decoration:line-through;
+  color:#666;
+}
 
+/* Empty state */
 .empty{
   padding:18px;
   text-align:center;
   color:var(--muted);
-  border:1px dashed var(--stroke);
+  border:1px dashed var(--border);
   border-radius:12px;
 }
-
 .item .name,
-.item .meta{min-width:0; overflow-wrap:anywhere}
+.item .meta{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
