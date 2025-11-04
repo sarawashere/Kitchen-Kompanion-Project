@@ -1,10 +1,10 @@
 /* Colors */
 :root {
-  --bg: #ffffff;
-  --panel: #f9f9f9;
-  --text: #000000;
-  --muted: #6b7280;
-  --stroke: #d0d0d0;
+  --bg: #2B2D42;
+  --panel: #2B2D42;
+  --text: #ffffff;
+  --muted: #ffffff;
+  --stroke: #E86A92;
   --brand: #eef2ff;
   --danger: #dc2626;
 }
@@ -17,13 +17,18 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font: 24px/1.45 Arial, Helvetica, sans-serif; 
-  background: var(--bg);
+  font-family: "Helvetica", Arial, sans-serif;
+  background: white;
   color: var(--text);
 
   /* Center the device screen */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body, input, select, textarea, button {
+  font-family: "Helvetica", Arial, sans-serif;
 }
 
 /* Device / Screen Specs */
@@ -63,7 +68,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #fff;
+  background: #2B2D42;
   border-bottom: 2px solid var(--stroke);
   box-shadow: 0 2px 0 rgba(0,0,0,0.04); 
 }
