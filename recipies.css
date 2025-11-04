@@ -7,8 +7,18 @@ body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
 
 
 /* Fixed device frame 375x667 */
-.device-frame{width:375px; height:667px; border-radius:28px; border:1px solid #000000; box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.04); background:#2B2D42; padding:8px}
-.app{width:100%; height:100%; overflow:auto; border-radius:22px; background:rgba(43,45,66,.15); border:1px solid var(--border)}
+.device-frame{
+  width:640px;
+  height:960px;
+  border-radius:34px;
+  border:1px solid #000000;
+  box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.04);
+  background:#2B2D42;
+  padding:8px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}.app{width:100%; height:100%; overflow:auto; border-radius:22px; background:rgba(43,45,66,.15); border:1px solid var(--border)}
 
 
 header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border)}
@@ -43,9 +53,29 @@ input[type="range"]{width:100%; accent-color:var(--accent)}
 
 
 .results{opacity:.85; font-size:13px}
-.grid{display:grid; grid-template-columns:1fr; gap:12px}
-.card{background:linear-gradient(180deg, #2B2D42, #2B2D42); border:1px solid var(--border); border-radius:18px; overflow:hidden; position:relative; box-shadow:var(--shadow); cursor:pointer; transition:transform .18s ease}
-.card:active{transform:scale(.98)}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  padding:12px;
+}
+.thumb > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.card{
+  background:linear-gradient(180deg, #2B2D42, #2B2D42);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:transform .18s ease;
+  width:100%;
+}.card:active{transform:scale(.98)}
 .thumb{ aspect-ratio: 4 / 3; background:#2B2D42; display:grid; place-items:center; font-size:42px }
 .body{ padding:10px }
 .title{font-weight:600; margin:2px 0 6px}
