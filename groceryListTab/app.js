@@ -207,17 +207,17 @@
   function render() {
     var groups = getFilteredAndGrouped();
     list.innerHTML = '';
-  
+
     if (items.length === 0) {
       emptyState.hidden = false;
       return;
     } else {
       emptyState.hidden = true;
     }
-  
+
     for (var g = 0; g < groups.length; g++) {
       var group = groups[g];
-  
+
       // Only show a group header when there are multiple groups
       if (groups.length > 1) {
         var head = document.createElement('li');
@@ -225,31 +225,29 @@
         head.textContent = group.key;
         list.appendChild(head);
       }
-  
+
       for (var j = 0; j < group.items.length; j++) {
         var it = group.items[j];
-  
+
         var li = document.createElement('li');
         li.className = 'item' + (it.checked ? ' checked' : '');
         li.setAttribute('data-id', it.id);
-  
-        // Build stacked meta lines in fixed order
-        var metaLines = [];
-        if (it.amount) metaLines.push('<div class="line"><strong>Amount:</strong> ' + escapeHtml(it.amount) + '</div>');
-        if (it.store)  metaLines.push('<div class="line"><strong>Store:</strong> '  + escapeHtml(it.store)  + '</div>');
-        if (it.notes)  metaLines.push('<div class="line"><strong>Notes:</strong> '  + escapeHtml(it.notes)  + '</div>');
-  
+
+        // Build meta text
+        var metaParts = [];
+        if (it.amount) metaParts.push('Amount: ' + it.amount);
+        if (it.store)  metaParts.push('| Store: ' + it.store);
+        if (it.notes)  metaParts.push('| Notes: ' + it.notes);
+        var metaText = metaParts.join(' ');
+
         li.innerHTML =
-          // left column: checkbox (flush to left edge)
-          '<input class="chk" type="checkbox" data-action="toggle" ' + (it.checked ? 'checked' : '') + ' />' +
-          // middle column: name + stacked meta
-          '<div class="content">' +
-            '<div class="name">' + escapeHtml(it.food) + '</div>' +
-            '<div class="meta">' + metaLines.join('') + '</div>' +
-          '</div>' +
-          // right column: delete button
+          '<label>' +
+            '<input type="checkbox" data-action="toggle" ' + (it.checked ? 'checked' : '') + ' />' +
+            ' <span class="name">' + escapeHtml(it.food) + '</span>' +
+          '</label>' +
+          '<div class="meta">' + escapeHtml(metaText) + '</div>' +
           '<button type="button" class="btn danger" data-action="delete" aria-label="Delete ' + escapeHtml(it.food) + '">✕</button>';
-  
+
         list.appendChild(li);
       }
     }
