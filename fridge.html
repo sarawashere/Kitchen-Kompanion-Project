@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- NOTE: fixed the common typo: width=device-width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fridge • Mobile</title>
+  <link rel="stylesheet" href="fridge.css" />
+</head>
+<body>
+  <div class="device-frame">
+    <!-- Header -->
+    <header class="header">
+      <h1>Fridge</h1>
+      <div class="controls">
+        <div class="search-wrap">
+          <input id="search" type="text" placeholder="Search foods" aria-label="Search foods" />
+        </div>
+         <button id="addFoodBtn" aria-label="Add food">Add Food(+)</button>
+      </div>
+    </header>
+    <!-- Food List -->
+    <main id="food-list" class="food-list">
+      <!-- Food cards will be dynamically added here -->
+    </main>
+  <dialog id="addFoodModal" class="modal">
+  <form class="modal-content" onsubmit="event.preventDefault()">
+    <h2>Add Food</h2>
+    <label>
+        FoodName:
+    <input type="text" id="foodName" placeholder="e.g. blueberries" required />
+    </label>
+    <label>
+        Quantity:
+      <input type="number" id="foodQuantity" min="1" placeholder="1" required />
+    </label>
+    <div class="modal-actions">
+        <button type="submit" id="saveFood">Save</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+    </div>
+  </form>
+</dialog>
+  </div>
+  <script src="fridge.js"></script>
+</body>
+</html>
