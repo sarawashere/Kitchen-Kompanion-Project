@@ -11,6 +11,7 @@ html, body {
 body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:white; color:var(--text); display:grid; place-items:center}
 
 .device-frame {
+  position: relative;
   width:640px;
   height:960px;
   border-radius:34px;
@@ -168,8 +169,11 @@ header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:
 }
 
 .modal[open]{
-  width: inherit;
+  width: 100%;
+  max-width: 640px;
   display: flex;
+  transform: none;
+  top:50%;
   justify-content: center;
   align-items: center;
   position: absolute;
