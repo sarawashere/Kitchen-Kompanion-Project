@@ -5,6 +5,7 @@
   --text: #ffffff;
   --muted: #ffffff;
   --stroke: #E86A92;
+  --border:#E86A92;
   --brand: #eef2ff;
   --danger: #dc2626;
 }
@@ -35,7 +36,7 @@ body, input, select, textarea, button {
 .device-frame {
   width: 640px;
   height: 960px;
-  border: 2px solid #ccc;
+  border: 2px solid var(--stroke);
   border-radius: 34px;
   overflow: hidden;
   background: var(--bg);
@@ -43,7 +44,6 @@ body, input, select, textarea, button {
   display: flex;
   flex-direction: column;
 }
-
 /* Scrolling functionality for screen */
 .screen {
   flex: 1;
@@ -53,6 +53,7 @@ body, input, select, textarea, button {
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;              /* always allocate space for the scrollbar */
   scrollbar-gutter: stable both-edges; /* modern, prevents layout shift */
+  padding-bottom: 16px;
 }
 
 /* Inner content alignment */
@@ -229,4 +230,68 @@ input:focus, select:focus, textarea:focus {
 .device-frame .container {
   width: 100%;
   max-width: 100%;
+}
+  .nav-bar{
+  display: flex;
+  position: relative;
+  bottom:0;
+  justify-content: space-around;
+  align-items: center;
+
+  background: var(--panel);
+  border-top:1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 8px;
+  padding: 14px 0;
+  z-index: 1000;
+}
+
+.nav-btn{
+  flex:1;
+  text-align: center;
+  background: transparent;
+  flex-direction: column;
+  border: none;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.nav-btn .icon{
+  font-size: 26px;
+  margin-bottom:4px;
+}
+
+.nav-btn .label{
+  font-size: 13px;
+  font-weight: 500;
+  color:var(--text);
+}
+
+.nav-btn:hover{
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.nav-btn.active{
+  position: relative;
+  color: var(--accent);
+  /* border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px; */
+}
+
+.nav-bar .nav-btn.active::after{
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
 }

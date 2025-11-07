@@ -21,7 +21,7 @@ body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
   overflow:hidden;
   display:flex;
   flex-direction:column;
-}.app{width:100%; height:100%; overflow:auto; border-radius:22px; background:rgba(43,45,66,.15); border:1px solid var(--border)}
+}.app{width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15); border:1px solid var(--border); overflow:hidden; flex-direction: column;display: flex;}
 
 /* ===== Header ===== */
 header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border); padding:16px 12px;}
@@ -247,3 +247,55 @@ header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:
   color: var(--panel);
 }
 
+
+.nav-bar{
+  display: flex;
+  position: relative;
+  bottom:0;
+  justify-content: space-around;
+  align-items: center;
+
+  background: var(--panel);
+  border-top:1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 0;
+  z-index: 1000;
+  margin-top: auto;
+}
+
+.nav-btn{
+  flex:1;
+  text-align: center;
+  background: transparent;
+  flex-direction: column;
+  border: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.nav-btn .icon{
+  font-size: 26px;
+  margin-bottom:4px;
+}
+
+.nav-btn .label{
+  font-size: 13px;
+  font-weight: 500;
+  color:var(--text);
+}
+
+.nav-btn:hover{
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.nav-btn.active{
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
+}

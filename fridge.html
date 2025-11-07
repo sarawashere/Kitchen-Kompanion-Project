@@ -9,6 +9,7 @@
 </head>
 <body>
   <div class="device-frame">
+    <div class="app">
     <!-- Header -->
     <header class="header">
       <h1>Fridge</h1>
@@ -23,23 +24,42 @@
     <main id="food-list" class="food-list">
       <!-- Food cards will be dynamically added here -->
     </main>
-  <dialog id="addFoodModal" class="modal">
-  <form class="modal-content" onsubmit="event.preventDefault()">
-    <h2>Add Food</h2>
-    <label>
-        FoodName:
-    <input type="text" id="foodName" placeholder="e.g. blueberries" required />
-    </label>
-    <label>
-        Quantity:
-      <input type="number" id="foodQuantity" min="1" placeholder="1" required />
-    </label>
-    <div class="modal-actions">
-        <button type="submit" id="saveFood">Save</button>
-        <button type="button" id="cancelBtn">Cancel</button>
-    </div>
-  </form>
-</dialog>
+
+
+    <!--Nav bar-->
+      <nav class="nav-bar">
+          <a href="recipies.html" class="nav-btn ">
+            <span class="icon">🍲</span>
+            <span class="label">Recipes</span>
+          </a>
+          <a href="fridge.html" class="nav-btn active">
+            <span class="icon">🧊</span>
+              <span class="label">Fridge</span>
+          </a>
+
+          <a href="groceryListTab/index.html" class="nav-btn">
+            <span class="icon">🛒</span>
+            <span class="label">Shopping</span>
+          </a>
+      </nav>
+      <dialog id="addFoodModal" class="modal">
+      <form class="modal-content" onsubmit="event.preventDefault()">
+        <h2>Add Food</h2>
+        <label>
+            FoodName:
+        <input type="text" id="foodName" placeholder="e.g. blueberries" required />
+        </label>
+        <label>
+            Quantity:
+          <input type="number" id="foodQuantity" min="1" placeholder="1" required />
+        </label>
+        <div class="modal-actions">
+            <button type="submit" id="saveFood">Save</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+  </div>
   </div>
   <script src="fridge.js"></script>
 </body>

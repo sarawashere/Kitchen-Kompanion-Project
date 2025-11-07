@@ -118,4 +118,54 @@ dialog{ border:1px solid var(--border); border-radius:22px; padding:0; backgroun
   }
   
   
-  
+  .nav-bar{
+  display: flex;
+  position: sticky;
+  bottom:0;
+  justify-content: space-around;
+  align-items: center;
+
+  background: var(--panel);
+  border-top:1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow);
+
+  padding: 14px 0;
+  z-index: 1000;
+}
+
+.nav-btn{
+  flex:1;
+  text-align: center;
+  background: transparent;
+  flex-direction: column;
+  border: none;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.nav-btn .icon{
+  font-size: 26px;
+  margin-bottom:4px;
+}
+
+.nav-btn .label{
+  font-size: 13px;
+  font-weight: 500;
+  color:var(--text);
+}
+
+.nav-btn:hover{
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.nav-btn.active{
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
+}
