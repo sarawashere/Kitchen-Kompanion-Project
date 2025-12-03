@@ -5,8 +5,6 @@
 html,body{height:100%}
 body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:white; color:var(--text); display:grid; place-items:center}
 
-
-/* Fixed device frame 375x667 */
 .device-frame{
   width:640px;
   height:960px;
@@ -19,8 +17,6 @@ body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
   display:flex;
   flex-direction:column;
 }.app{width:100%; height:100%; overflow:auto; border-radius:22px; background:rgba(43,45,66,.15)}
-
-
 header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border)}
 .bar{padding:12px; display:flex; gap:10px; align-items:center}
 .search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
@@ -86,7 +82,6 @@ input[type="range"]{width:100%; accent-color:var(--accent)}
 .empty{opacity:.7; text-align:center; padding:20px}
 
 
-/* Modal */
 dialog::backdrop{ background:rgba(0,0,0,.55) }
 dialog{ border:1px solid var(--border); border-radius:22px; padding:0; background:var(--panel); color:var(--text); width:min(640px, 92vw) }
 .modal-head{ display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-bottom:1px solid var(--border)}
@@ -100,19 +95,19 @@ dialog{ border:1px solid var(--border); border-radius:22px; padding:0; backgroun
     background: #f8fafc;      
     border-color: #cbd5e1;       
   }
-  /* Keep thumbnails uniform and center-cropped */
+
 .thumb {
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 3;
-    overflow: hidden;            /* important */
+    overflow: hidden;            
     background: #2B2D42;
   }
   
   .thumb > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;        
+    object-fit: cover;          
     object-position: center;
     display: block;
   }
@@ -170,86 +165,3 @@ dialog{ border:1px solid var(--border); border-radius:22px; padding:0; backgroun
   border-bottom: 2px solid var(--accent);
   padding-bottom: 4px;
 }
-:root{
---bg:#F7F7F9; --panel:#2B2D42; --muted:#F7F7F9; --text:#e5e7eb; --accent:#E86A92; --border:#E86A92; --card:#F7F7F9; --shadow:0 10px 25px rgba(0,0,0,.35); --radius:18px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:white; color:var(--text); display:grid; place-items:center}
-
-
-.device-frame{width:375px; height:667px; border-radius:28px; border:1px solid #000000; box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.04); background:#2B2D42; padding:8px}
-.app{width:100%; height:100%; overflow:auto; border-radius:22px; background:rgba(43,45,66,.15); border:1px solid var(--border)}
-
-
-header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border)}
-.bar{padding:12px; display:flex; gap:10px; align-items:center}
-.search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
-.search input{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-.search input::placeholder{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-.pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); cursor:pointer}
-
-
-.wrap{display:grid; gap:14px; padding:12px}
-.filters{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:12px; box-shadow:var(--shadow)}
-.filters-row{display:flex; align-items:center; gap:8px}
-.filters-row h2{font-size:16px; margin:0}
-.clear{margin-left:auto; font-size:12px; opacity:.8; cursor:pointer}
-.group{border-top:1px dashed var(--border); padding-top:10px; margin-top:10px}
-label{display:flex; gap:8px; align-items:center; font-size:14px; color:#cbd5e1}
-
-select{width:100%; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:12px; padding:10px; font-size:14px}
-.range-row{display:flex; align-items:center; gap:8px}
-input[type="range"]{width:100%; accent-color:var(--accent)}
-.range-val{font-variant-numeric:tabular-nums; font-size:13px; color:#E86A92}
-.chips{display:flex; flex-wrap:wrap; gap:8px}
-.chip{border:1px solid var(--border); background:var(--card); padding:8px 10px; border-radius:999px; cursor:pointer; font-size:13px}
-.chip.active{border-color:var(--accent); box-shadow:0 0 0 2px rgba(34,197,94,.25) inset}
-
-
-.results{opacity:.85; font-size:13px}
-.grid{display:grid; grid-template-columns:1fr; gap:12px}
-.card{background:linear-gradient(180deg, #2B2D42, #2B2D42); border:1px solid var(--border); border-radius:18px; overflow:hidden; position:relative; box-shadow:var(--shadow); cursor:pointer; transition:transform .18s ease}
-.card:active{transform:scale(.98)}
-.thumb{ aspect-ratio: 4 / 3; background:#2B2D42; display:grid; place-items:center; font-size:42px }
-.body{ padding:10px }
-.title{font-weight:600; margin:2px 0 6px}
-.meta{display:flex; gap:10px; font-size:12px; color:#cbd5e1}
-.tag{border:1px solid var(--border); padding:2px 8px; border-radius:999px}
-.fav{ position:absolute; right:8px; top:8px; border:none; background:rgba(0,0,0,.35); width:34px; height:34px; border-radius:999px; display:grid; place-items:center; cursor:pointer }
-.fav[aria-pressed="true"]{ background:#E86A92 }
-.empty{opacity:.7; text-align:center; padding:20px}
-
-
-dialog::backdrop{ background:rgba(0,0,0,.55) }
-dialog{ border:1px solid var(--border); border-radius:22px; padding:0; background:var(--panel); color:var(--text); width:min(640px, 92vw) }
-.modal-head{ display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-bottom:1px solid var(--border)}
-.modal-actions{display:flex; gap:8px; align-items:center}
-.modal-body{ padding:14px; display:grid; gap:8px}
-.close{ background:transparent; border:1px solid var(--border); color:var(--text); border-radius:10px; padding:6px 10px; cursor:pointer}
-
-
-.filters select {
-    color: #2B2D42;            
-    background: #f8fafc;      
-    border-color: #cbd5e1;       
-  }
-
-.thumb {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;            
-    background: #2B2D42;
-  }
-  
-  .thumb > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;          
-    object-position: center;
-    display: block;
-  }
-  
-  
-  
