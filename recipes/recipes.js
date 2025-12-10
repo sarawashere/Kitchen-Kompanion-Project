@@ -1,7 +1,7 @@
 (() => {
   // Add "course" to each recipe
   const RECIPES = [
-    { id: 1, title: "Lemon Herb Salmon", img:"images/salmon.jpg", calories: 520, skill:"Intermediate", course:"main",
+    { id: 1, title: "Lemon Herb Salmon", img:"../images/salmon.jpg", calories: 520, skill:"Intermediate", course:"main",
       allergens:["fish"],
       ingredients:["salmon","lemon","garlic","parsley","olive oil"],
       directions:[
@@ -14,7 +14,7 @@
       ],
       description:"Oven-baked salmon with a bright lemon-garlic glaze." },
 
-    { id: 2, title: "Creamy Pesto Pasta", img:"images/pesto.jpg", calories: 740, skill:"Beginner", course:"main",
+    { id: 2, title: "Creamy Pesto Pasta", img:"../images/pesto.jpg", calories: 740, skill:"Beginner", course:"main",
       allergens:["gluten","dairy","nuts"],
       ingredients:["pasta","basil pesto","cream","parmesan"],
       directions:[
@@ -27,7 +27,7 @@
       ],
       description:"Comfort pasta tossed in a creamy basil pesto sauce." },
 
-    { id: 3, title: "Tofu Stir-Fry", img:"images/tofu.jpg", calories: 480, skill:"Beginner", course:"main",
+    { id: 3, title: "Tofu Stir-Fry", img:"../images/tofu.jpg", calories: 480, skill:"Beginner", course:"main",
       allergens:["soy","sesame"],
       ingredients:["tofu","broccoli","bell pepper","soy sauce","sesame oil"],
       directions:[
@@ -40,7 +40,7 @@
       ],
       description:"Quick veggie stir-fry with crispy tofu." },
 
-    { id: 4, title: "Chicken Fajita Bowl", img:"images/fajitabowl.jpg", calories: 610, skill:"Intermediate", course:"main",
+    { id: 4, title: "Chicken Fajita Bowl", img:"../images/fajitabowl.jpg", calories: 610, skill:"Intermediate", course:"main",
       allergens:["none"],
       ingredients:["chicken","peppers","onions","rice","spices"],
       directions:[
@@ -53,7 +53,7 @@
       ],
       description:"Sizzling fajita flavors over cilantro-lime rice." },
 
-    { id: 5, title: "Avocado Toast Deluxe", img:"images/avotoast.jpg", calories: 420, skill:"Beginner", course:"appetizer",
+    { id: 5, title: "Avocado Toast Deluxe", img:"../images/avotoast.jpg", calories: 420, skill:"Beginner", course:"appetizer",
       allergens:["gluten","eggs"],
       ingredients:["sourdough","avocado","egg","chili flakes"],
       directions:[
@@ -65,7 +65,7 @@
       ],
       description:"Crispy toast with smashed avocado and jammy egg." },
 
-    { id: 6, title: "Shrimp Tacos", img:"images/stacos.jpg", calories: 560, skill:"Advanced", course:"main",
+    { id: 6, title: "Shrimp Tacos", img:"../images/stacos.jpg", calories: 560, skill:"Advanced", course:"main",
       allergens:["shellfish","gluten"],
       ingredients:["shrimp","tortillas","slaw","lime","spices"],
       directions:[
@@ -77,7 +77,7 @@
       ],
       description:"Zesty shrimp tucked in warm tortillas with crunchy slaw." },
 
-    { id: 7, title: "Mushroom Risotto", img:"images/mush.jpg", calories: 690, skill:"Advanced", course:"main",
+    { id: 7, title: "Mushroom Risotto", img:"../images/mush.jpg", calories: 690, skill:"Advanced", course:"main",
       allergens:["dairy"],
       ingredients:["arborio rice","mushrooms","stock","butter","parmesan"],
       directions:[
@@ -90,7 +90,7 @@
       ],
       description:"Creamy risotto with sautéed mushrooms." },
 
-    { id: 8, title: "Greek Salad", img:"images/greek.jpg", calories: 330, skill:"Beginner", course:"appetizer",
+    { id: 8, title: "Greek Salad", img:"../images/greek.jpg", calories: 330, skill:"Beginner", course:"appetizer",
       allergens:["dairy"],
       ingredients:["cucumber","tomato","feta","olive","oregano"],
       directions:[
@@ -101,7 +101,7 @@
       ],
       description:"Crunchy, refreshing, and tangy classic salad." },
 
-    { id: 9, title: "Nanaimo Bars", img:"images/nanaimo.jpg", calories: 450, skill:"Intermediate", course:"dessert",
+    { id: 9, title: "Nanaimo Bars", img:"../images/nanaimo.jpg", calories: 450, skill:"Intermediate", course:"dessert",
       allergens:["dairy","gluten","nuts"],
       ingredients:["graham crumbs","butter","coconut","custard powder","cream","chocolate"],
       directions:[
@@ -113,7 +113,7 @@
       ],
       description:"Classic Canadian layered dessert bar with chocolate top, custard middle, and coconut graham crust." },
 
-    { id: 10, title: "Frozen Berry Yogurt Cups", img:"images/frozenberry.jpg", calories: 210, skill:"Beginner", course:"dessert",
+    { id: 10, title: "Frozen Berry Yogurt Cups", img:"../images/frozenberry.jpg", calories: 210, skill:"Beginner", course:"dessert",
       allergens:["dairy"],
       ingredients:["greek yogurt","berries","honey","granola"],
       directions:[
