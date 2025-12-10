@@ -80,7 +80,7 @@ header.container {
   max-width: none;
   width: 100%;
   margin: 0;
-  padding: 22px;
+  padding: 20px;   /* match Fridge/Recipes feel */
 }
 
 /* Typography */
@@ -88,13 +88,22 @@ h1 { margin: 0 0 14px; font-size: 34px; }
 h2 { margin: 0 0 14px; font-size: 24px; }
 
 /* Data Entering Fields */
+/* Header row – behave like Fridge/Recipes header row */
 .toolbar {
-  display: grid;
-  align-items: end;
-  gap: 64px;
-  grid-template-columns: 300px 205px;
+  display: flex;
+  align-items: stretch;   /* same height for search + group-by */
+  gap: 12px;
 }
 
+/* First field (Search) should stretch */
+.toolbar .field:first-child {
+  flex: 1;
+}
+
+/* Second field (Group by) fixed width */
+.toolbar .field:last-child {
+  width: 230px;
+}
 .field {
   display: grid;
   gap: 7px;
@@ -114,6 +123,24 @@ input, select, textarea {
 
 input::placeholder,
 textarea::placeholder { color: #9ca3af; }
+
+/* Shopping tab header search – match Recipes/Fridge search pill */
+#search {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 31px 20px;                 /* SAME as other search bars */
+  font-size: 22px;                    /* SAME font size */
+  color: var(--text);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+/* Placeholder consistency */
+#search::placeholder {
+  font-size: 22px;
+  color: var(--text);
+  font-family: "Helvetica", Arial, sans-serif;
+}
 
 input:focus, select:focus, textarea:focus {
   outline: 3px solid rgba(37,150,190,.35);

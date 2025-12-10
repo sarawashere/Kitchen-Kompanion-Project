@@ -43,13 +43,16 @@ header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:
   background: transparent;
   border: 0;
   outline: 0;
-  color: white;
   font-size: 22px;
+  color: var(--text);                     /* same color as fridge */
+  font-family: "Helvetica", Arial, sans-serif;
 }
 
+/* Recipes placeholder */
 .search input::placeholder {
-  color: var(--text);
-  font-size: 22px;
+  font-size: 22px;                        /* same size */
+  color: var(--text);                     /* same color */
+  font-family: "Helvetica", Arial, sans-serif;
 }
 
 /* Favorite button in header */
@@ -77,12 +80,12 @@ header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:
 .filters-row h2{font-size:16px; margin:0}
 .clear {
   margin-left: auto;
-  padding: 6px 14px;
+  padding: 16px 16px;
   border-radius: 999px;
   border: 1px solid var(--accent);
   background-color: var(--accent);
   color: #2B2D42;              /* same dark text as active chips/nav */
-  font-size: 13px;
+  font-size: 23px;
   font-weight: 600;
   cursor: pointer;
   opacity: 1;
@@ -114,7 +117,7 @@ input[type="range"]{width:100%; accent-color:var(--accent)}
 .chip.active{
   border-color:var(--accent); 
   box-shadow:0 0 0 2px rgba(34,197,94,.25) inset;
-  background-color: #FF4FA3;
+  background-color: #ff99bb;
   color: #2B2D42;
   border-color: var(--accent);}
 
@@ -150,7 +153,7 @@ input[type="range"]{width:100%; accent-color:var(--accent)}
 .meta{display:flex; gap:10px; font-size:12px; color:#cbd5e1}
 .tag{border:1px solid var(--border); padding:2px 8px; border-radius:999px}
 .fav{ position:absolute; right:8px; top:8px; border:none; background:rgba(0,0,0,.35); width:34px; height:34px; border-radius:999px; display:grid; place-items:center; cursor:pointer; left:auto}
-.fav[aria-pressed="true"]{ background:#FF4FA3 }
+.fav[aria-pressed="true"]{ background:#ff99bb}
 .empty{opacity:.7; text-align:center; padding:20px}
 
 

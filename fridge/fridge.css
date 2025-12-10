@@ -31,66 +31,79 @@
     display:flex;
     flex-direction:column;
   }.app{width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15);  overflow:hidden; flex-direction: column;display: flex;}
-  
-  /* ===== Header ===== */
-  header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border); padding:30px 12px;}
-  .bar{padding:2px; display:flex; gap:10px; align-items:center}
-  .search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
-  .search input{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-  .search input::placeholder{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-  .pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); cursor:pointer}
-  
-  .header h1 {
-    align-items: center;
-    margin: 0 0 8px;
-    font-size: 20px;
-    color: var(--text);
-  }
-  
-  /* Controls row */
-  .controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  /* Search */
-  .search-wrap {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 22px 28px;
-  }
-  .search-wrap input {
-    width: 100%;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 20px;
-    color: var(--text);
-  }
-  .search-wrap input::placeholder { color: #b4b4b4; }
-  
-  
-  
-  .add-food-btn,
-  #addFoodBtn {
-    padding: 22px 44px;
-    background-color: var(--accent);
-    color: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  
-  .add-food-btn:hover,
-  #addFoodBtn:hover {
-    background-color: #ff88af;
-  }
-  
+  /* ===== Header (Fridge) – match Recipes header spacing ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  background: rgba(43,45,66,.15);
+  border-bottom: 1px solid var(--border);
+  padding: 20px;               /* same top padding feel as Recipes */
+}
+
+.header h1 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: var(--text);
+}
+
+/* Row with search + Add Food – match .bar from Recipes */
+.header .controls {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;         /* same height for search + button */
+}
+
+/* Search bar – match Recipes .search sizing */
+.search-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 31px 20px;           /* SAME as Recipes .search */
+  box-shadow: var(--shadow);
+}
+.search-wrap input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 22px;                        /* SAME as recipes */
+  color: var(--text);                     /* SAME as recipes */
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+/* Fridge placeholder */
+.search-wrap input::placeholder {
+  font-size: 22px;                        /* SAME as recipes */
+  color: var(--text);                     /* SAME as recipes */
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+
+/* Add Food button – match Recipes .pill sizing + style */
+#addFoodBtn {
+  padding: 22px 44px;           /* SAME as Recipes .pill */
+  background-color: var(--accent);
+  color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 24px;              /* SAME as Recipes .pill font size */
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#addFoodBtn:hover {
+  background-color: #ff99bb;
+  color: #2B2D42;
+  box-shadow: 0 0 0 1px rgba(232,106,146,0.6);
+}
+
   
   #food-list{
     flex: 1;
