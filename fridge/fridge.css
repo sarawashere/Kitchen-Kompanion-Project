@@ -1,348 +1,383 @@
+
+
 /* ===== Center the phone on the page (like your Choices tab) ===== */
 :root{
---bg:#F7F7F9; --panel:#1C2541; --muted:#F7F7F9; --text:#e5e7eb; --accent:#F6B7CD; --border:#F6B7CD; --card:#F7F7F9; --shadow:0 10px 25px rgba(0,0,0,.35); --radius:18px;
-}
-* { box-sizing: border-box; }
-
-html, body {
-  height: 100%;
-  margin: 0;
-}
-body {
-  margin: 0;
-  background: white;
-  color: var(--text);
-  display: grid;
-  place-items: center;
-  /* REMOVE any font-family here */
-}
-.device-frame {
-  position: relative;
-  width:640px;
-  height:960px;
-  border-radius:34px;
-  border:1px solid var(--border);
-  box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.04);
-  background:#2B2D42;
-  padding:8px 0;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-}.app{width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15);  overflow:hidden; flex-direction: column;display: flex;}
-
-/* ===== Header ===== */
-header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border); padding:16px 12px;}
-.bar{padding:12px; display:flex; gap:10px; align-items:center}
-.search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
-.search input{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-.search input::placeholder{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-.pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); cursor:pointer}
-
-.header h1 {
-  align-items: center;
-  margin: 0 0 8px;
-  font-size: 20px;
-  color: var(--text);
-}
-
-/* Controls row */
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Search */
-.search-wrap {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 8px 12px;
-}
-.search-wrap input {
-  width: 100%;
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 14px;
-  color: var(--text);
-}
-.search-wrap input::placeholder { color: #b4b4b4; }
-
-
-
-.add-food-btn,
-#addFoodBtn {
-  padding: 8px 14px;
-  background-color: var(--accent);
-  color: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.add-food-btn:hover,
-#addFoodBtn:hover {
-  background-color: #ff88af;
-}
-
-
-#food-list{
-  flex: 1;
-  overflow-y: auto;
-  padding: 12px;     
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.food-card{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--text);
-  padding: 12px;
-  position: relative;
-}
-
-.food-card:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 0 2px var(--accent);
-}
-
-.info h3 {
-  margin: 0 0 6px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-
-.counter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.counter button {
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--panel);
-  color: var(--accent);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.counter button:hover {
-  background: var(--accent);
-  color: var(--panel);
-}
-
-.quantity {
-  color: var(--text);
-  font-size: 15px;
-}
-
-
-.remove-btn{
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: var(--accent);
-  font-size: 18px;
-  cursor: pointer;
-  transition: color 0.25s ease;
-}
-
-.remove-btn:hover {
-  color: #ff99bb;
-}
-
-.modal{
-  border-radius: inherit;
-}
-
-.modal[open]{
-  width: 100%;
-  max-width: 640px;
-  display: flex;
-  transform: none;
-  top:50%;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  inset: 0;
-  background-color: var(--panel);
-  border-radius: inherit;
-  border: 1px solid var(--border);
-  outline: none;
-  box-shadow: var(--shadow);
-  filter: none;
-  z-index: 999;
-}
-
-.modal-content{
-  width: inherit;
-  background: var(--panel);
-  border: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding:20px;
-  color: var(--text);
-}
-
-.modal-content h2{
-  margin-top:0;
-  color:var(--accent);
-  font-size: 18px;;
-}
-
-.modal-content label{
-  display:block;
-  margin-bottom:10px;
-  font-size: 14px;
-  color: var(--text);
-}
-
-.modal-content input{
-  width:100%;
-  padding:8px;
-  border:1px solid var(--border);
-  border-radius:6px;
-  background: var(--panel);
-  color: var(--text);
-  font-size: 14px;
-}
-
-.modal-actions{
-  text-align:right;
-}
-
-.modal-actions button{
-  padding:8px 12px;
-  margin-left:8px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight: 600;
-}
-
-#saveFoodBtn{
-  background-color: var(--accent);
-  color: var(--panel);
-}
-#cancelFoodBtn{
-  background-color: var(--panel);
-  color: var(--accent);
-}
-#cancelFoodBtn:hover{
-  background-color: var(--accent);
-  color: var(--panel);
-}
-#saveFoodBtn:hover{
-  background-color: #ff99bb;
-  color: var(--panel);
-}
-
-
-.nav-bar{
-  display:flex;
-  position:sticky;
-  bottom:0;
-  justify-content:space-around;
-  align-items:center;
-  background:var(--panel);
-  border-top:1px solid var(--border);
-  border-radius:0 0 var(--radius) var(--radius);
-  box-shadow:var(--shadow);
-  margin-top:auto;
-  padding:10px 0;
-  z-index:1000;
-}
-
-.nav-btn{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:2px;
-  padding:6px 0 4px;
-  background:transparent;
-  border:none;
-  color:var(--text);
-  font-weight:600;
-  text-decoration:none;
-  font-size:16px;
-  cursor:pointer;
-  position:relative;
-}
-
-.nav-btn .label{
-  font-size:13px;
-  font-weight:500;
-  color:inherit;
-}
-
-.nav-btn .icon{
-  font-size:24px;
-  margin-bottom:2px;
-}
-
-.nav-btn::after{
-  content:"";
-  position:absolute;
-  left:20%;
-  right:20%;
-  bottom:0;
-  height:3px;
-  border-radius:999px;
-  background:var(--accent);
-  opacity:0;
-  transform:scaleX(0.6);
-  transform-origin:center;
-}
-
-.nav-btn:hover{
-  background:rgba(255,255,255,0.05);
-  color:var(--accent);
-}
-
-.nav-btn:hover::after{
-  opacity:0.5;
-  transform:scaleX(1);
-}
-
-.nav-btn.active{
-  color:var(--accent);
-  background:rgba(232,106,146,0.18);  
-  box-shadow:0 0 0 1px rgba(232,106,146,0.5) inset;
-}
-
-.nav-btn.active::after{
-  opacity:1;
-  transform:scaleX(1);
-}
+  --bg:#F7F7F9; --panel:#1C2541; --muted:#F7F7F9; --text:#e5e7eb; --accent:#F6B7CD; --border:#F6B7CD; --card:#F7F7F9; --shadow:0 10px 25px rgba(0,0,0,.35); --radius:18px;
+  }
+  * { box-sizing: border-box; }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    margin: 0;
+    background: white;
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    /* REMOVE any font-family here */
+  }  
+  .device-frame {
+    position: relative;
+    width:640px;
+    height:960px;
+    border-radius:34px;
+    border:1px solid var(--border);
+    box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.04);
+    background:#2B2D42;
+    padding:8px 0;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }.app{width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15);  overflow:hidden; flex-direction: column;display: flex;}
+  
+  /* ===== Header ===== */
+  header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border); padding:16px 12px;}
+  .bar{padding:12px; display:flex; gap:10px; align-items:center}
+  .search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
+  .search input{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
+  .search input::placeholder{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
+  .pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); cursor:pointer}
+  
+  .header h1 {
+    align-items: center;
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: var(--text);
+  }
+  
+  /* Controls row */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Search */
+  .search-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 12px;
+  }
+  .search-wrap input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .search-wrap input::placeholder { color: #b4b4b4; }
+  
+  
+  
+  .add-food-btn,
+  #addFoodBtn {
+    padding: 8px 14px;
+    background-color: var(--accent);
+    color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  
+  .add-food-btn:hover,
+  #addFoodBtn:hover {
+    background-color: #ff88af;
+  }
+  
+  
+  #food-list{
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;     
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .food-card{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    padding: 12px;
+    position: relative;
+  }
+  
+  .food-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  
+  .info h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  
+  
+  .counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .counter button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--panel);
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  
+  .counter button:hover {
+    background: var(--accent);
+    color: var(--panel);
+  }
+  
+  .quantity {
+    color: var(--text);
+    font-size: 15px;
+  }
+  
+  
+  .remove-btn{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.25s ease;
+  }
+  
+  .remove-btn:hover {
+    color: #ff99bb;
+  }
+  
+  .modal{
+    border-radius: inherit;
+  }
+  
+  .modal[open]{
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    transform: none;
+    top:50%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    background-color: var(--panel);
+    border-radius: inherit;
+    border: 1px solid var(--border);
+    outline: none;
+    box-shadow: var(--shadow);
+    filter: none;
+    z-index: 999;
+  }
+  
+  .modal-content{
+    width: inherit;
+    background: var(--panel);
+    border: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding:20px;
+    color: var(--text);
+  }
+  
+  .modal-content h2{
+    margin-top:0;
+    color:var(--accent);
+    font-size: 18px;;
+  }
+  
+  .modal-content label{
+    display:block;
+    margin-bottom:10px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  
+  .modal-content input{
+    width:100%;
+    padding:8px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background: var(--panel);
+    color: var(--text);
+    font-size: 14px;
+  }
+  
+  .modal-actions{
+    text-align:right;
+  }
+  
+  .modal-actions button{
+    padding:8px 12px;
+    margin-left:8px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight: 600;
+  }
+  
+  #saveFoodBtn{
+    background-color: var(--accent);
+    color: var(--panel);
+  }
+  #cancelFoodBtn{
+    background-color: var(--panel);
+    color: var(--accent);
+  }
+  #cancelFoodBtn:hover{
+    background-color: var(--accent);
+    color: var(--panel);
+  }
+  #saveFoodBtn:hover{
+    background-color: #ff99bb;
+    color: var(--panel);
+  }
+  
+  
+  .nav-bar{
+    display:flex;
+    position:sticky;
+    bottom:0;
+    justify-content:space-around;
+    align-items:center;
+    background:var(--panel);
+    border-top:1px solid var(--border);
+    border-radius:0 0 var(--radius) var(--radius);
+    box-shadow:var(--shadow);
+    margin-top:auto;
+    padding:10px 0;
+    z-index:1000;
+  }
+  
+  .nav-btn{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+    padding:6px 0 4px;
+    background:transparent;
+    border:none;
+    color:var(--text);
+    font-weight:600;
+    text-decoration:none;
+    font-size:16px;
+    cursor:pointer;
+    position:relative;
+  }
+  
+  .nav-btn .label{
+    font-size:13px;
+    font-weight:500;
+    color:inherit;
+  }
+  
+  .nav-btn .icon{
+    font-size:24px;
+    margin-bottom:2px;
+  }
+  
+  .nav-btn::after{
+    content:"";
+    position:absolute;
+    left:20%;
+    right:20%;
+    bottom:0;
+    height:3px;
+    border-radius:999px;
+    background:var(--accent);
+    opacity:0;
+    transform:scaleX(0.6);
+    transform-origin:center;
+  }
+  
+  .nav-btn:hover{
+    background:rgba(255,255,255,0.05);
+    color:var(--accent);
+  }
+  
+  .nav-btn:hover::after{
+    opacity:0.5;
+    transform:scaleX(1);
+  }
+  
+  .nav-btn.active{
+    color:var(--accent);
+    background:rgba(232,106,146,0.18);  
+    box-shadow:0 0 0 1px rgba(232,106,146,0.5) inset;
+  }
+  
+  .nav-btn.active::after{
+    opacity:1;
+    transform:scaleX(1);
+  }
 body,
 input,
 select,
 textarea,
-button,
+button,a
 .chip,
 .nav-btn,
 label {
   font-family: "Helvetica", Arial, sans-serif !important;
+}
+
+/* Shared modal button styles */
+.modal-actions button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Cancel button – match grocery tab style */
+.modal-cancel {
+  background-color: var(--panel);
+  color: var(--accent);
+}
+
+.modal-cancel:hover {
+  background-color: var(--accent);
+  color: var(--panel);
+}
+
+/* Confirm/Delete button – match grocery tab style */
+.modal-confirm {
+  background-color: var(--accent);
+  color: var(--panel);
+}
+
+.modal-confirm:hover {
+  background-color: #ff99bb;
+  color: var(--panel);
 }

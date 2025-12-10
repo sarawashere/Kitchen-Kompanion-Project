@@ -311,3 +311,63 @@ input:focus, select:focus, textarea:focus {
   opacity:1;
   transform:scaleX(1);
 }
+dialog.modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+dialog.modal::backdrop {
+  background: rgba(0,0,0,0.55);
+}
+
+.modal-content {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid var(--stroke);
+  max-width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.modal-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Match Fridge modal button styling */
+.modal-actions button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Cancel button (match fridge #cancelFoodBtn) */
+.modal-cancel {
+  background-color: var(--panel);
+  color: var(--accent);
+}
+
+.modal-cancel:hover {
+  background-color: var(--accent);
+  color: var(--panel);
+}
+
+/* Confirm/Delete button (match fridge #saveFoodBtn) */
+.modal-confirm {
+  background-color: var(--accent);
+  color: var(--panel);
+}
+
+.modal-confirm:hover {
+  background-color: #ff99bb;
+  color: var(--panel);
+}

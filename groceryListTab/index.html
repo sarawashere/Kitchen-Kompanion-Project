@@ -62,6 +62,7 @@
               <div class="actions">
                 <button id="clearList" type="button" class="btn clear">Clear List</button>
                 <button class="btn add" type="submit">Add Item</button>
+                
               </div>
             </form>
           </section>
@@ -75,7 +76,25 @@
         </main>
 
       </div>
-
+          <!-- In-app delete confirm for shopping items -->
+       <dialog id="confirmShoppingDeleteModal" class="modal">
+  <div class="modal-content">
+    <h2>Remove item?</h2>
+    <p id="confirmShoppingDeleteText">
+      Are you sure you want to remove this item from your shopping list?
+    </p>
+    <div class="modal-actions">
+      <!-- add class modal-cancel -->
+      <button type="button" id="cancelShoppingDelete" class="modal-cancel">
+        Cancel
+      </button>
+      <!-- change class to modal-confirm (remove "btn clear") -->
+      <button type="button" id="confirmShoppingDelete" class="modal-confirm">
+        Delete
+      </button>
+    </div>
+  </div>
+</dialog>
       
               <!--Nav bar-->
         <nav class="nav-bar">

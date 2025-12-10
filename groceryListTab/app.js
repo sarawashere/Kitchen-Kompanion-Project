@@ -45,6 +45,8 @@
 
   /* DOM References (initialized on DOMContentLoaded) */
   var list, emptyState, form, inputFood, inputAmount, inputStore, inputNotes, search, groupBy, clearBtn;
+  var confirmShoppingDeleteModal, confirmShoppingDeleteText, confirmShoppingDeleteBtn, cancelShoppingDeleteBtn;
+  var pendingDeleteId = null;
 
   document.addEventListener('DOMContentLoaded', function () {
     // Wire DOM
@@ -76,6 +78,25 @@
       });
       form.reset();
       inputFood.focus();
+
+      confirmShoppingDeleteModal = document.getElementById('confirmShoppingDeleteModal');
+      confirmShoppingDeleteText  = document.getElementById('confirmShoppingDeleteText');
+      confirmShoppingDeleteBtn   = document.getElementById('confirmShoppingDelete');
+      cancelShoppingDeleteBtn    = document.getElementById('cancelShoppingDelete');
+      
+      // Confirm delete actions
+      confirmShoppingDeleteBtn.addEventListener('click', function () {
+        if (pendingDeleteId) {
+          removeItem(pendingDeleteId);
+          pendingDeleteId = null;
+        }
+        confirmShoppingDeleteModal.close();
+      });
+      
+      cancelShoppingDeleteBtn.addEventListener('click', function () {
+        pendingDeleteId = null;
+        confirmShoppingDeleteModal.close();
+      });
     });
 
     // Clear list
@@ -97,7 +118,20 @@
       var row = e.target.closest('li.item');
       if (!row) return;
       var id = row.getAttribute('data-id');
-      if (delBtn) removeItem(id);
+    
+      if (delBtn) {
+        // Store which item we might delete
+        pendingDeleteId = id;
+    
+        // Get the name text for friendlier message
+        var nameEl = row.querySelector('.name');
+        var nameText = nameEl ? nameEl.textContent.trim() : 'this item';
+    
+        confirmShoppingDeleteText.textContent =
+          'Are you sure you want to remove "' + nameText + '" from your shopping list?';
+    
+        confirmShoppingDeleteModal.showModal();
+      }
     });
 
     // Event delegation: toggle checked
