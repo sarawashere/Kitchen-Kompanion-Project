@@ -29,8 +29,33 @@ header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:
 .filters{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:12px; box-shadow:var(--shadow)}
 .filters-row{display:flex; align-items:center; gap:8px}
 .filters-row h2{font-size:16px; margin:0}
-.clear{margin-left:auto; font-size:12px; opacity:.8; cursor:pointer}
-.group{border-top:1px dashed var(--border); padding-top:10px; margin-top:10px}
+.clear {
+  margin-left: auto;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background-color: var(--accent);
+  color: #2B2D42;              /* same dark text as active chips/nav */
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 1;
+  transition: background-color 0.2s ease, 
+              color 0.2s ease, 
+              box-shadow 0.2s ease, 
+              transform 0.1s ease;
+}
+
+.clear:hover {
+  background-color: #ff99bb;   /* slightly brighter pink on hover */
+  color: #2B2D42;
+  box-shadow: 0 0 0 1px rgba(232,106,146,0.6);
+}
+
+.clear:active {
+  transform: scale(0.97);      /* subtle press effect */
+  box-shadow: none;
+}.group{border-top:1px dashed var(--border); padding-top:10px; margin-top:10px}
 label{display:flex; gap:8px; align-items:center; font-size:14px; color:#cbd5e1}
 
 select{width:100%; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:12px; padding:10px; font-size:14px}
