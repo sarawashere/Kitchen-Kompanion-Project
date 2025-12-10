@@ -5,6 +5,11 @@
   <!-- NOTE: fixed the common typo: width=device-width -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fridge</title>
+
+    <!-- shared global styles -->
+
+  
+
   <link rel="stylesheet" href="../fridge/fridge.css" />
 </head>
 <body>
@@ -58,6 +63,20 @@
             <button type="button" id="cancelBtn">Cancel</button>
         </div>
       </form>
+    </dialog>
+    <dialog id="confirmFridgeDeleteModal" class="modal">
+      <div class="modal-content">
+        <h2>Remove item?</h2>
+        <p id="confirmFridgeDeleteText">
+          Are you sure you want to remove this item from your fridge?
+        </p>
+        <div class="modal-actions">
+          <button type="button" id="cancelFridgeDelete">Cancel</button>
+          <button type="button" id="confirmFridgeDelete" style="background-color: var(--accent); color: var(--panel);">
+            Delete
+          </button>
+        </div>
+      </div>
     </dialog>
   </div>
   </div>

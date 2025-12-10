@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search');
     const foodList = document.getElementById('food-list');
+    const confirmFridgeDeleteModal = document.getElementById('confirmFridgeDeleteModal');
+    const confirmFridgeDeleteText  = document.getElementById('confirmFridgeDeleteText');
+    const confirmFridgeDeleteBtn   = document.getElementById('confirmFridgeDelete');
+    const cancelFridgeDeleteBtn    = document.getElementById('cancelFridgeDelete');
+
+    let pendingDeleteCard = null; 
+
+
+
     function getCards() {
       return Array.from(document.querySelectorAll('.food-card'));
     }
@@ -40,10 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
             qtySpan.textContent = quantity;
       });
       removeBtn.addEventListener('click', () => {
-            card.remove();
+        // Store which card we’re about to remove
+        pendingDeleteCard = card;
+      
+        // Customize the message with the item name
+        const name = card.dataset.name || card.querySelector('h3')?.textContent || 'this item';
+        confirmFridgeDeleteText.textContent = `Are you sure you want to remove "${name}" from your fridge?`;
+      
+        // Show in-app modal
+        confirmFridgeDeleteModal.showModal();
+
+        confirmFridgeDeleteBtn.addEventListener('click', () => {
+          if (pendingDeleteCard) {
+            pendingDeleteCard.remove();
+            pendingDeleteCard = null;
             searchInput.value = '';
             applyFilters();
+          }
+          confirmFridgeDeleteModal.close();
+        });
+        
+        cancelFridgeDeleteBtn.addEventListener('click', () => {
+          pendingDeleteCard = null;
+          confirmFridgeDeleteModal.close();
+        });
       });
+
+
     }
 
     getCards().forEach(attachCardEvents);

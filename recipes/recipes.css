@@ -197,3 +197,33 @@ dialog{ border:1px solid var(--border); border-radius:22px; padding:0; backgroun
   opacity:1;
   transform:scaleX(1);
 }
+/* Make "Allergies", "Course" headings bigger */
+.filters-row h2 {
+  font-size: 26px;      /* was 16px */
+}
+
+/* Make all chips (Allergies, Course, etc.) bigger */
+.chip {
+  font-size: 25px;      /* was 13px */
+  padding: 30px 30px;   /* a bit more padding so they feel chunkier */
+}
+
+/* Make the "Calories" label text bigger */
+label {
+  font-size: 0px;      /* was 14px */
+}
+
+/* Make the numeric calories value bigger too */
+.range-val {
+  font-size: 18px;      /* was 14px */
+}
+body,
+input,
+select,
+textarea,
+button,
+.chip,
+.nav-btn,
+label {
+  font-family: "Helvetica", Arial, sans-serif !important;
+}

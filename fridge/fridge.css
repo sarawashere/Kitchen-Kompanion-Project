@@ -8,8 +8,14 @@ html, body {
   height: 100%;
   margin: 0;
 }
-body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:white; color:var(--text); display:grid; place-items:center}
-
+body {
+  margin: 0;
+  background: white;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  /* REMOVE any font-family here */
+}
 .device-frame {
   position: relative;
   width:640px;
@@ -329,4 +335,14 @@ header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:
 .nav-btn.active::after{
   opacity:1;
   transform:scaleX(1);
+}
+body,
+input,
+select,
+textarea,
+button,
+.chip,
+.nav-btn,
+label {
+  font-family: "Helvetica", Arial, sans-serif !important;
 }
