@@ -33,8 +33,8 @@
   }.app{width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15);  overflow:hidden; flex-direction: column;display: flex;}
   
   /* ===== Header ===== */
-  header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border); padding:16px 12px;}
-  .bar{padding:12px; display:flex; gap:10px; align-items:center}
+  header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border); padding:30px 12px;}
+  .bar{padding:2px; display:flex; gap:10px; align-items:center}
   .search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
   .search input{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
   .search input::placeholder{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
@@ -59,14 +59,14 @@
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 999px;
-    padding: 8px 12px;
+    padding: 22px 28px;
   }
   .search-wrap input {
     width: 100%;
     border: none;
     background: transparent;
     outline: none;
-    font-size: 14px;
+    font-size: 20px;
     color: var(--text);
   }
   .search-wrap input::placeholder { color: #b4b4b4; }
@@ -75,13 +75,13 @@
   
   .add-food-btn,
   #addFoodBtn {
-    padding: 8px 14px;
+    padding: 22px 44px;
     background-color: var(--accent);
     color: var(--panel);
     border: 1px solid var(--border);
     border-radius: 999px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 24px;
     cursor: pointer;
     transition: all 0.25s ease;
   }

@@ -6,7 +6,7 @@ html,body{height:100%}
 body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:white; color:var(--text); display:grid; place-items:center}
 
 .device-frame{
-  width:640px;
+  width: 640px;
   height:960px;
   border-radius:34px;
   border:1px solid var(--border);
@@ -18,11 +18,57 @@ body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
   flex-direction:column;
 }.app{width:100%; height:100%; overflow:auto; border-radius:22px; background:rgba(43,45,66,.15)}
 header{position:sticky; top:0; z-index:5; backdrop-filter:blur(6px); background:rgba(43,45,66,.15); border-bottom:1px solid var(--border)}
-.bar{padding:12px; display:flex; gap:10px; align-items:center}
-.search{flex:1; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:10px 14px; box-shadow:var(--shadow)}
-.search input{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-.search input::placeholder{flex:1; background:transparent; border:0; outline:0; color:white; font-size:15px}
-.pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); cursor:pointer}
+.bar {
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: stretch;        /* make children (search + fav) same height */
+}
+
+/* Search bar */
+.search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 31px 20px;          /* match button vertical padding */
+  box-shadow: var(--shadow);
+}
+
+.search input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 22px;
+}
+
+.search input::placeholder {
+  color: var(--text);
+  font-size: 22px;
+}
+
+/* Favorite button in header */
+.pill {
+  padding: 22px 44px;
+  background-color: var(--accent);
+  color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.pill:hover {
+  background-color: #ff99bb;   /* slightly brighter pink on hover */
+  color: #2B2D42;
+  box-shadow: 0 0 0 1px rgba(232,106,146,0.6);
+}
 
 
 .wrap{display:grid; gap:14px; padding:12px}
