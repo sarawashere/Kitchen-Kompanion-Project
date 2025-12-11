@@ -30,7 +30,7 @@
     overflow:hidden;
     display:flex;
     flex-direction:column;
-  }.app{width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15);  overflow:hidden; flex-direction: column;display: flex;}
+  }.app{position:relative;width:100%; height:100%; border-radius:22px; background:rgba(43,45,66,.15);  overflow:hidden; flex-direction: column;display: flex;}
   /* ===== Header (Fridge) – match Recipes header spacing ===== */
 header {
   position: sticky;
@@ -52,6 +52,8 @@ header {
 .header .controls {
   display: flex;
   gap: 12px;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: stretch;         /* same height for search + button */
 }
 
@@ -66,6 +68,7 @@ header {
   border-radius: 999px;
   padding: 31px 20px;           /* SAME as Recipes .search */
   box-shadow: var(--shadow);
+  position:relative;
 }
 .search-wrap input {
   width: 100%;
@@ -75,6 +78,7 @@ header {
   font-size: 22px;                        /* SAME as recipes */
   color: var(--text);                     /* SAME as recipes */
   font-family: "Helvetica", Arial, sans-serif;
+  padding-right: 48px;
 }
 
 /* Fridge placeholder */
@@ -190,26 +194,31 @@ header {
   }
   
   .modal[open]{
-    width: 100%;
-    max-width: 640px;
+    max-width: none;
     display: flex;
     transform: none;
+    padding: 16px;
     top:50%;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-color: var(--panel);
-    border-radius: inherit;
+    border-radius: 0;
+    border: none;
     border: 1px solid var(--border);
     outline: none;
     box-shadow: var(--shadow);
     filter: none;
+    overflow-y: auto;
     z-index: 999;
   }
   
   .modal-content{
-    width: inherit;
+    width: 100%;
+    max-width: 540px;
+    max-height: 80vh;
+    overflow-y: auto;
     background: var(--panel);
     border: none;
     border: 1px solid var(--border);
@@ -394,3 +403,41 @@ label {
   background-color: #ff99bb;
   color: var(--panel);
 }
+ 
+.empty-message, .no-results-message {
+    text-align: center;
+    position:absolute;
+    width: 80%;
+    left: 50%;
+    top:30%;
+    transform: translate(-50%, -50%);
+    color: var(--muted);
+    font-size: 18px;
+    margin-top: 40px;
+    bottom: 50%;
+  }
+.food-card .remove-btn,.edit-btn{
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--accent);
+    border-radius: 15%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.25s ease;
+  }
+  
+  .food-card .edit-btn {
+    right: 92px;
+    /* padding: 4px 8px; */
+  }
+  .food-card .remove-btn:hover {
+    /* right:16px; */
+  }
+
+  .food-card .edit-btn:hover {
+    color: #ff99bb;
+  }

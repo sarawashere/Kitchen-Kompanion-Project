@@ -12,12 +12,12 @@
     <div class="app">
     <!-- Header -->
     <header class="header">
-     <!-- <h1>Fridge</h1> dosnt look good idk-->
       <div class="controls">
+      <button id="addFoodBtn" aria-label="Add food">Add Food + </button>
         <div class="search-wrap">
           <input id="search" type="text" placeholder="Search foods" aria-label="Search foods" />
+          <button id="clearSearch" aria-label="Clear search">x</button>
         </div>
-         <button id="addFoodBtn" aria-label="Add food">Add Food + </button>
       </div>
     </header>
     <!-- Food List -->
@@ -25,6 +25,12 @@
       <!-- Food cards will be dynamically added here -->
     </main>
 
+    <p id="emptyFridgeMessage" class="empty-message"> 
+      Your fridge is empty. Click "Add Food +" to start adding items!
+    </p>
+    <p id="noSearchResultsMessage" class="empty-message" style="display:none;">
+      No matching food items found.
+    </p>
 
     <!--Nav bar-->
       <nav class="nav-bar">
@@ -52,6 +58,27 @@
         <label>
             Quantity:
           <input type="number" id="foodQuantity" min="1" placeholder="1" required />
+        </label>
+        <label>
+            Unit:
+          <select id="unitSelect" required>
+            <option value="" selected>Select unit</option>
+            <option value="grams">grams</option>
+            <option value="ml">ml</option>
+            <option value="cups">cups</option>
+            <option value="pieces">pieces</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <div id="otherUnitWrapper" style="display:none;">
+          <label>
+            Specify other unit:
+            <input type="text" id="otherUnitInput" placeholder="e.g. slices" />
+          </label>
+        </div>
+        <label>
+            Expiry Date:
+          <input type="date" id="expiryDate" />
         </label>
         <div class="modal-actions">
             <button type="submit" id="saveFood">Save</button>
